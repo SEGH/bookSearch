@@ -1,7 +1,10 @@
 import React from "react";
+import Searchbar from "../Searchbar";
 
 export default function Search() {
     return (
-        <h2>Search</h2>
+        <main className="container">
+            <Searchbar />
+        </main>
     );
 }
