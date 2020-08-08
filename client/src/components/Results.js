@@ -8,7 +8,7 @@ export default function Results(props) {
         <section>
             <h6>Results</h6>
             <Collection>
-                {props.books.map(book => <ResultItem title={book.volumeInfo.title} authors={book.volumeInfo.authors.join(", ")} image={book.volumeInfo.imageLinks.smallThumbnail} description={book.volumeInfo.description} link={book.volumeInfo.selfLink} />)}
+                {props.books.map(book => <ResultItem title={book.volumeInfo.title} authors={book.volumeInfo.authors.join(", ")} image={book.volumeInfo.imageLinks.smallThumbnail} description={book.volumeInfo.description} link={book.volumeInfo.infoLink} />)}
             </Collection>
         </section>
     );

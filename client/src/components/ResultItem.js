@@ -8,7 +8,7 @@ export default function ResultItem(props) {
 
             <Row>
                 <Col><h6>{props.title}</h6><p>{props.authors}</p></Col>
-                <Col><Button>View</Button></Col>
+                <Col><a href={props.link} className="btn">View</a></Col>
                 <Col><Button>Save</Button></Col>
             </Row>
             <Row>
