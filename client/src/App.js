@@ -1,7 +1,10 @@
 import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 export default function App() {
     return (
-        <h1>Google Books Search</h1>
+        <Router>
+            <h1>Google Books Search</h1>
+        </Router>
     );
 }
