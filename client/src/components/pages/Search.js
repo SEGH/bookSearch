@@ -1,18 +1,13 @@
 import React, { useState } from "react";
 import Searchbar from "../Searchbar";
+import "materialize-css";
+import { Collection } from "react-materialize";
 import Results from "../Results";
+import ResultItem from "../ResultItem";
 import API from "../../utils/API";
 
 export default function Search() {
-    const [books, setBooks] = useState([
-        {
-            title: "Test Book",
-            authors: "SEGH",
-            description: "A very good book indeed",
-            image: "",
-            link: ""
-        }
-    ]);
+    const [books, setBooks] = useState([]);
 
     const [bookSearch, setBookSearch] = useState("");
 

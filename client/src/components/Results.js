@@ -1,6 +1,6 @@
 import React from "react";
 import "materialize-css";
-import { Collection, CollectionItem, Button } from "react-materialize";
+import { Collection } from "react-materialize";
 import ResultItem from "./ResultItem";
 
 export default function Results(props) {
@@ -8,7 +8,7 @@ export default function Results(props) {
         <section>
             <h6>Results</h6>
             <Collection>
-                {props.books.map(book => <ResultItem title={book.title} authors={book.authors} image={book.image} description={book.description} link={book.link} />)}
+                {props.books.map(book => <ResultItem title={book.volumeInfo.title} authors={book.volumeInfo.authors.join(", ")} image={book.volumeInfo.imageLinks.smallThumbnail} description={book.volumeInfo.description} link={book.volumeInfo.selfLink} />)}
             </Collection>
         </section>
     );
