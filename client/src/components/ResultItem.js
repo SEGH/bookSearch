@@ -12,13 +12,13 @@ export default function ResultItem(props) {
         <CollectionItem>
 
             <Row>
-                <Col><h6>{props.title}</h6><p>{props.authors}</p></Col>
-                <Col><a href={props.link} className="btn">View</a></Col>
-                <Col><Button onClick={ saveBook }>Save</Button></Col>
+                <Col l={10}><h6>{props.title}</h6><p>{props.authors}</p></Col>
+                <Col l={1}><a href={props.link} className="btn-small z-depth-2 amber">View</a></Col>
+                <Col l={1}><Button small className="z-depth-2 amber" onClick={ saveBook }>Save</Button></Col>
             </Row>
             <Row>
-                <Col><img src={props.image}></img></Col>
-                <Col><p>{props.description}</p></Col>
+                <Col l={2}><img src={props.image}></img></Col>
+                <Col l={10}><p>{props.description}</p></Col>
             </Row>
 
         </CollectionItem>
