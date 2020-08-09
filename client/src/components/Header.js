@@ -7,7 +7,7 @@ export default function Header() {
     const location = useLocation();
 
     return (
-        <Navbar brand={<a className="brand-logo" href="/">Google Books</a>} alignLinks="left" centerLogo>
+        <Navbar brand={<a className="brand-logo" href="/">Google Books</a>} alignLinks="left" centerLogo className="deep-orange lighten-3">
 
             <Link to="/">Search</Link>
 
