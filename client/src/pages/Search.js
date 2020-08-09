@@ -17,6 +17,7 @@ export default function Search() {
 
     const handleSearch = event => {
         event.preventDefault();
+        console.log(bookSearch);
         API.getBooks(bookSearch)
             .then(res => {
                 console.log(res.data.items);
