@@ -21,3 +21,8 @@ li p {
 li img {
     padding-top: 4px;
 }
+
+#bookDiv {
+    border: 0;
+    text-align: center;
+}

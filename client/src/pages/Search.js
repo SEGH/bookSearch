@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import "materialize-css";
+import { Icon } from "react-materialize";
 import Searchbar from "../components/Searchbar";
 import Results from "../components/Results";
 import Banner from "../components/Banner";
@@ -30,7 +32,7 @@ export default function Search() {
         <main className="container">
             <Banner />
             <Searchbar handleInputChange={handleInputChange} handleSearch={handleSearch} />
-            <Results books={books} />
+            {books.length > 0 ? <Results books={books} /> : <section id="bookDiv"><Icon large center >menu_book</Icon></section> }
         </main>
     );
 }
