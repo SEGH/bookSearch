@@ -32,7 +32,7 @@ export default function Search() {
         <main className="container">
             <Banner />
             <Searchbar handleInputChange={handleInputChange} handleSearch={handleSearch} />
-            {books.length > 0 ? <Results books={books} /> : <section id="bookDiv"><Icon large center >menu_book</Icon></section> }
+            {books.length > 0 ? <Results books={books} /> : <section className="bookDiv"><Icon large center >menu_book</Icon></section> }
         </main>
     );
 }

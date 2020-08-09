@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import "materialize-css";
+import { Icon } from "react-materialize";
 import Results from "../components/Results";
 import Banner from "../components/Banner";
 import API from "../utils/API";
@@ -22,7 +24,7 @@ export default function Saved() {
     return (
         <main className="container">
             <Banner />
-            <Results books={books} />
+            {books.length > 0 ? <Results books={books} /> : <section className="bookDiv"><Icon large >local_library</Icon><h4>No Saved Books</h4></section>}
         </main>
     );
 }
