@@ -8,12 +8,13 @@ export default function Saved() {
 
     useEffect(() => {
         loadBooks()
-    }, [books]);
+    }, []);
 
     function loadBooks() {
         API.getSavedBooks()
             .then(res => {
                 console.log(res.data);
+                setBooks(res.data);
             })
             .catch(err => console.log(err));
     };
@@ -21,6 +22,7 @@ export default function Saved() {
     return (
         <main className="container">
             <Banner />
+            <Results books={books} />
         </main>
     );
 }
