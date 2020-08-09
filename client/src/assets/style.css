@@ -1,0 +1,23 @@
+.container {
+    width: 85% !important;
+}
+section {
+    padding: 1em;
+    margin-top: 5em;
+    border: 1px solid black;
+}
+
+#banner {
+    padding-bottom: 4em;
+}
+h2 {
+    margin-top: 0;
+}
+
+li p {
+    margin-top: 0;
+}
+
+li img {
+    padding-top: 4px;
+}
