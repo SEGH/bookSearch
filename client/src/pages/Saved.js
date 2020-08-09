@@ -8,12 +8,12 @@ export default function Saved() {
 
     useEffect(() => {
         loadBooks()
-    }, []);
+    }, [books]);
 
     function loadBooks() {
         API.getSavedBooks()
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
                 setBooks(res.data);
             })
             .catch(err => console.log(err));
