@@ -21,11 +21,11 @@ export default function ResultItem(props) {
         console.log(id);
         API.deleteBook(id)
             .then(res => {
-                console.log(`${id} deleted!`)
+                console.log(`${id} deleted!`);
             })
             .catch(err => console.log(err));
     };
-
+    
     return (
         <CollectionItem>
 
