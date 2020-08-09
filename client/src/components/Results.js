@@ -15,7 +15,7 @@ export default function Results(props) {
                     if (location.pathname === "/") {
                         book = book.volumeInfo;
                     }
-                    return <ResultItem title={book.title} authors={book.authors.join(", ")} image={book.imageLinks ? book.imageLinks.smallThumbnail : book.image} description={book.description} link={book.infoLink ? book.infoLink : book.link} key={book._id ? book._id : book.industryIdentifiers[0].identifier} id={book._id && book._id } />
+                    return <ResultItem title={book.title} authors={book.authors ? book.authors.join(", ") : book.authors} image={book.imageLinks ? book.imageLinks.smallThumbnail : book.image} description={book.description} link={book.infoLink ? book.infoLink : book.link} key={book._id ? book._id : book.industryIdentifiers[0].identifier} id={book._id && book._id } />
                 }
                 )}
             </Collection>
