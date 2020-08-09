@@ -13,9 +13,22 @@ export default function Results(props) {
             <Collection>
                 {props.books.map(book => {
                     if (location.pathname === "/") {
-                        book = book.volumeInfo;
+
+                        return <ResultItem title={book.title}
+                            authors={book.volumeInfo.authors ? book.volumeInfo.authors.join(", ") : book.volumeInfo.authors}
+                            image={book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.smallThumbnail : book.volumeInfo.image}
+                            description={book.volumeInfo.description}
+                            link={book.volumeInfo.infoLink}
+                            key={book.id} />
+                    } else {
+                        return <ResultItem title={book.title}
+                            authors={book.authors ? book.authors.join(", ") : book.authors}
+                            image={book.image}
+                            description={book.description}
+                            link={book.link}
+                            key={book._id}
+                            id={book._id} />
                     }
-                    return <ResultItem title={book.title} authors={book.authors ? book.authors.join(", ") : book.authors} image={book.imageLinks ? book.imageLinks.smallThumbnail : book.image} description={book.description} link={book.infoLink ? book.infoLink : book.link} key={book._id ? book._id : book.industryIdentifiers[0].identifier} id={book._id && book._id } />
                 }
                 )}
             </Collection>
