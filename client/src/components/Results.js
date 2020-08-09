@@ -14,7 +14,7 @@ export default function Results(props) {
                 {props.books.map(book => {
                     if (location.pathname === "/") {
 
-                        return <ResultItem title={book.title}
+                        return <ResultItem title={book.volumeInfo.title}
                             authors={book.volumeInfo.authors ? book.volumeInfo.authors.join(", ") : book.volumeInfo.authors}
                             image={book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.smallThumbnail : book.volumeInfo.image}
                             description={book.volumeInfo.description}
