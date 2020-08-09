@@ -6,7 +6,12 @@ import API from "../utils/API";
 export default function ResultItem(props) {
     function saveBook() {
         console.log(props);
-    }
+        API.saveBook(props)
+            .then(res => {
+                console.log("book saved!");
+            })
+            .catch(err => console.log(err));
+    };
 
     return (
         <CollectionItem>
