@@ -27,7 +27,7 @@ export default function Results(props) {
                             description={book.description}
                             link={book.link}
                             key={book._id}
-                            id={book._id} />
+                            id={book._id} loadBooks={props.loadBooks}/>
                     }
                 }
                 )}

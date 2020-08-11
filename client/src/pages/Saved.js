@@ -10,13 +10,14 @@ export default function Saved() {
 
     useEffect(() => {
         loadBooks()
-    }, [books]);
+    }, []);
 
     function loadBooks() {
         API.getSavedBooks()
             .then(res => {
                 // console.log(res.data);
                 setBooks(res.data);
+
             })
             .catch(err => console.log(err));
     };
@@ -24,7 +25,7 @@ export default function Saved() {
     return (
         <main className="container">
             <Banner />
-            {books.length > 0 ? <Results books={books} /> : <section className="bookDiv"><Icon large >local_library</Icon><h4>No Saved Books</h4></section>}
+            {books.length > 0 ? <Results books={books} loadBooks={loadBooks} /> : <section className="bookDiv"><Icon large >local_library</Icon><h4>No Saved Books</h4></section>}
         </main>
     );
 }
