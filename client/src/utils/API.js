@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default {
     getBooks: function(query) {
-        return axios.get("https://www.googleapis.com/books/v1/volumes?q=" + query + "&key=" + "AIzaSyBsEW3rt6CfUI4K7qv6CBX4Lz3ovbjZFw4");
+        return axios.get(`https://www.googleapis.com/books/v1/volumes?q=${query}&key=${process.env.REACT_APP_GPASS}`);
     },
     saveBook: function(bookData) {
         return axios.post("/api/books", bookData);
