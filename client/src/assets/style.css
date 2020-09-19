@@ -22,11 +22,15 @@ li img {
     padding-top: 4px;
 }
 
+.login p {
+    cursor: pointer;
+}
+
+.login p:hover {
+    color: teal;
+}
+
 .bookDiv {
     border: 0;
     text-align: center;
-}
-
-#login {
-    padding: 5em 25em;
 }
