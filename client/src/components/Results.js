@@ -12,7 +12,7 @@ export default function Results(props) {
             <h6>Results</h6>
             <Collection>
                 {props.books.map(book => {
-                    if (location.pathname === "/") {
+                    if (location.pathname === "/search") {
 
                         return <ResultItem title={book.volumeInfo.title}
                             authors={book.volumeInfo.authors ? book.volumeInfo.authors.join(", ") : book.volumeInfo.authors}
