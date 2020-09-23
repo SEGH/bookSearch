@@ -11,6 +11,7 @@ export default function Login(props) {
     return (
         <main className="container">
             <Banner />
+            {props.loggedIn ? <p>Welcome, {props.user.email}!</p> : <p>please sign in</p>}
             {user ? <LoginInput toggleForm={toggleForm} handleLoginSubmit={props.handleLoginSubmit} handleLoginInput={props.handleLoginInput} />
                 : <SignUp toggleForm={toggleForm} handleSignupSubmit={props.handleSignupSubmit} handleSignupInput={props.handleSignupInput} />}
         </main>
