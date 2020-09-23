@@ -18,6 +18,15 @@ const UserSchema = new Schema ({
     ]
 });
 
+// Method to check password used when logging in
+UserSchema.methods.validPassword = function (password) {
+    if (password === this.password) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 const User = mongoose.model("User", UserSchema);
 
 module.exports = User;
