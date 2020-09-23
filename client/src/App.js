@@ -7,6 +7,13 @@ import Saved from "./pages/Saved";
 import API from "./utils/API";
 
 export default function App() {
+    const [loggedIn, setLoggedIn] = useState(false);
+
+    const [user, setUser] = useState({
+        email: "",
+        id: ""
+    });
+
     const [loginForm, setLoginForm] = useState({
         email: "",
         password: ""
@@ -29,6 +36,11 @@ export default function App() {
             .then(res => {
                 console.log("Logging in...")
                 console.log(res);
+                setUser({
+                    email: res.data.email,
+                    id: res.data.id
+                });
+                setLoggedIn(true);
             })
             .catch(err => console.log(err));
     }
@@ -60,10 +72,10 @@ export default function App() {
 
     return (
         <Router>
-            <Header />
-            <Route exact path="/" render={(props) => ( <Login {...props} handleLoginSubmit={handleLoginSubmit} handleLoginInput={handleLoginInput} handleSignupInput={handleSignupInput} handleSignupSubmit={handleSignupSubmit} />)} />
+            <Header loggedIn={loggedIn} />
+            <Route exact path="/" render={(props) => ( <Login {...props} handleLoginSubmit={handleLoginSubmit} handleLoginInput={handleLoginInput} handleSignupInput={handleSignupInput} handleSignupSubmit={handleSignupSubmit} loggedIn={loggedIn} user={user} />)} />
             <Route exact path="/search" component={Search} />
-            <Route exact path="/saved" component={Saved} />
+            <Route exact path="/saved" render={(props) => ( <Saved {...props} userId={user.id} />)} />
         </Router>
     );
 }
