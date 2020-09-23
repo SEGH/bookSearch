@@ -3,7 +3,7 @@ import "materialize-css";
 import { Link, useLocation } from "react-router-dom";
 import { Navbar } from "react-materialize";
 
-export default function Header() {
+export default function Header(props) {
     const location = useLocation();
 
     return (
@@ -11,7 +11,7 @@ export default function Header() {
 
             <Link to="/search">Search</Link>
 
-            <Link to="/saved">Saved</Link>
+            {props.loggedIn ? <Link to="/saved">Saved</Link> : null}
 
         </Navbar>
     )
