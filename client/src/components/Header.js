@@ -9,7 +9,7 @@ export default function Header(props) {
     return (
         <Navbar brand={<a className="brand-logo" href="/">Google Books</a>} alignLinks="left" centerLogo className="deep-orange lighten-3">
 
-            <Link to="/search">Search</Link>
+            <Link to="/">Search</Link>
 
             {props.loggedIn ? <Link to="/saved">Saved</Link> : null}
 

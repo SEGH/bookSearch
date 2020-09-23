@@ -34,7 +34,7 @@ export default function ResultItem(props) {
                 <Col l={10}><h6>{props.title}</h6><p>{props.authors}</p></Col>
                 <Col l={1}><a href={props.link} className="btn-small z-depth-2 amber">View</a></Col>
                 <Col l={1}>
-                    {location.pathname === "/search" ? <Button small className="z-depth-2 amber" onClick={() => saveBook(props) }>Save</Button> : <Button small className="z-depth-2 red" onClick={ () => deleteBook(props.id) }>Delete</Button>}
+                    {location.pathname === "/" ? <Button small className="z-depth-2 amber" onClick={() => saveBook(props) }>Save</Button> : <Button small className="z-depth-2 red" onClick={ () => deleteBook(props.id) }>Delete</Button>}
                     </Col>
             </Row>
             <Row>

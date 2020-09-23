@@ -41,6 +41,7 @@ export default function App() {
                     id: res.data.id
                 });
                 setLoggedIn(true);
+                window.location.href = "./";
             })
             .catch(err => console.log(err));
     }
@@ -73,8 +74,8 @@ export default function App() {
     return (
         <Router>
             <Header loggedIn={loggedIn} />
-            <Route exact path="/" render={(props) => ( <Login {...props} handleLoginSubmit={handleLoginSubmit} handleLoginInput={handleLoginInput} handleSignupInput={handleSignupInput} handleSignupSubmit={handleSignupSubmit} loggedIn={loggedIn} user={user} />)} />
-            <Route exact path="/search" component={Search} />
+            <Route exact path="/login" render={(props) => ( <Login {...props} handleLoginSubmit={handleLoginSubmit} handleLoginInput={handleLoginInput} handleSignupInput={handleSignupInput} handleSignupSubmit={handleSignupSubmit} loggedIn={loggedIn} user={user} />)} />
+            <Route exact path="/" component={Search} />
             <Route exact path="/saved" render={(props) => ( <Saved {...props} userId={user.id} />)} />
         </Router>
     );
