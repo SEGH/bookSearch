@@ -19,7 +19,7 @@ export default function Results(props) {
                             image={book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.smallThumbnail : book.volumeInfo.image}
                             description={book.volumeInfo.description}
                             link={book.volumeInfo.infoLink}
-                            key={book.id} />
+                            key={book.id} userId={props.userId} />
                     } else {
                         return <ResultItem title={book.title}
                             authors={book.authors ? book.authors.join(", ") : book.authors}
