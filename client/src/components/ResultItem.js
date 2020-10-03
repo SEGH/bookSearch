@@ -7,10 +7,11 @@ import API from "../utils/API";
 export default function ResultItem(props) {
     const location = useLocation();
 
-    function saveBook(book) {
+    function saveBook(userId, book) {
         console.log(book);
+        console.log(userId);
 
-        API.saveBook(book)
+        API.saveBook(userId, book)
             .then(res => {
                 console.log("book saved!");
             })
@@ -26,7 +27,7 @@ export default function ResultItem(props) {
             })
             .catch(err => console.log(err));
     };
-    
+
     return (
         <CollectionItem>
 
@@ -34,8 +35,8 @@ export default function ResultItem(props) {
                 <Col l={10}><h6>{props.title}</h6><p>{props.authors}</p></Col>
                 <Col l={1}><a href={props.link} className="btn-small z-depth-2 amber">View</a></Col>
                 <Col l={1}>
-                    {location.pathname === "/" ? <Button small className="z-depth-2 amber" onClick={() => saveBook(props) }>Save</Button> : <Button small className="z-depth-2 red" onClick={ () => deleteBook(props.id) }>Delete</Button>}
-                    </Col>
+                    {location.pathname === "/" ? <Button small className="z-depth-2 amber" onClick={() => saveBook(props.userId, props)}>Save</Button> : <Button small className="z-depth-2 red" onClick={() => deleteBook(props.id)}>Delete</Button>}
+                </Col>
             </Row>
             <Row>
                 <Col l={2}><img src={props.image}></img></Col>
