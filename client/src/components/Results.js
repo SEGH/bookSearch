@@ -19,7 +19,7 @@ export default function Results(props) {
                             image={book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.smallThumbnail : book.volumeInfo.image}
                             description={book.volumeInfo.description}
                             link={book.volumeInfo.infoLink}
-                            key={book.id} userId={props.userId} />
+                            key={book.id} userId={props.userId} loggedIn={props.loggedIn} />
                     } else {
                         return <ResultItem title={book.title}
                             authors={book.authors ? book.authors.join(", ") : book.authors}
@@ -27,7 +27,7 @@ export default function Results(props) {
                             description={book.description}
                             link={book.link}
                             key={book._id}
-                            id={book._id} loadBooks={props.loadBooks}/>
+                            id={book._id} loadBooks={props.loadBooks} loggedIn={props.loggedIn} />
                     }
                 }
                 )}

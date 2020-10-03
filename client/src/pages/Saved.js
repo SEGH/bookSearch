@@ -26,7 +26,7 @@ export default function Saved(props) {
     return (
         <main className="container">
             <Banner />
-            {books.length > 0 ? <Results books={books} loadBooks={loadBooks} /> : <section className="bookDiv"><Icon large >local_library</Icon><h4>No Saved Books</h4></section>}
+            {books.length > 0 ? <Results books={books} loadBooks={loadBooks} loggedIn={props.loggedIn} /> : <section className="bookDiv"><Icon large >local_library</Icon><h4>No Saved Books</h4></section>}
         </main>
     );
 }

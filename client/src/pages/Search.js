@@ -32,7 +32,7 @@ export default function Search(props) {
         <main className="container">
             <Banner />
             <Searchbar handleInputChange={handleInputChange} handleSearch={handleSearch} bookSearch={bookSearch} />
-            {books.length > 0 ? <Results books={books} userId={props.userId} /> : <section className="bookDiv"><Icon large center >menu_book</Icon></section> }
+            {books.length > 0 ? <Results books={books} userId={props.userId} loggedIn={props.loggedIn} /> : <section className="bookDiv"><Icon large center >menu_book</Icon></section> }
         </main>
     );
 }

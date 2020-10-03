@@ -33,10 +33,13 @@ export default function ResultItem(props) {
 
             <Row>
                 <Col l={10}><h6>{props.title}</h6><p>{props.authors}</p></Col>
+                {props.loggedIn ?
+                    <Col l={1}>
+                        {location.pathname === "/" ? <Button small className="z-depth-2 amber" onClick={() => saveBook(props.userId, props)}>Save</Button> : <Button small className="z-depth-2 red" onClick={() => deleteBook(props.id)}>Delete</Button>}
+                    </Col>
+                    : <Col l={1}></Col>
+                }
                 <Col l={1}><a href={props.link} className="btn-small z-depth-2 amber">View</a></Col>
-                <Col l={1}>
-                    {location.pathname === "/" ? <Button small className="z-depth-2 amber" onClick={() => saveBook(props.userId, props)}>Save</Button> : <Button small className="z-depth-2 red" onClick={() => deleteBook(props.id)}>Delete</Button>}
-                </Col>
             </Row>
             <Row>
                 <Col l={2}><img src={props.image}></img></Col>
