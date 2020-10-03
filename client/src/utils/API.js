@@ -6,11 +6,11 @@ export default {
     getBooks: function(query) {
         return axios.get(`https://www.googleapis.com/books/v1/volumes?q=${query}&key=${process.env.REACT_APP_GPASS}`);
     },
-    saveBook: function(bookData) {
-        return axios.post("/api/books", bookData);
+    saveBook: function(userId, bookData) {
+        return axios.post("/api/books/" + userId, bookData);
     },
-    getSavedBooks: function() {
-        return axios.get("/api/books");
+    getSavedBooks: function(userId) {
+        return axios.get("/api/books/" + userId);
     },
     deleteBook: function(id) {
         return axios.delete("/api/books/" + id);
