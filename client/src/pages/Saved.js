@@ -1,22 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useReducer } from "react";
 import "materialize-css";
 import { Icon } from "react-materialize";
 import Results from "../components/Results";
 import Banner from "../components/Banner";
 import API from "../utils/API";
 
-export default function Saved() {
+export default function Saved(props) {
     const [books, setBooks] = useState([]);
 
     useEffect(() => {
-        loadBooks()
+        loadBooks(props.userId)
     }, []);
 
-    function loadBooks() {
-        API.getSavedBooks()
+    function loadBooks(userId) {
+        console.log(userId);
+        API.getSavedBooks(userId)
             .then(res => {
-                // console.log(res.data);
-                setBooks(res.data);
+                console.log(res.data.books);
+                setBooks(res.data.books);
 
             })
             .catch(err => console.log(err));
