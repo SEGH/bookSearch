@@ -2,7 +2,7 @@
 
   [![license](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)
 
-  [Deployed App](https://googlebooks-80891.herokuapp.com)
+  [Deployed App](https://book-srch.herokuapp.com/)
   
   ## Description
   This is a React app that allows the user to search for books, view information about them (including an image of the cover),save them to a database, and view all saved books. It uses the Google Books API to bring in the book data and MongoDB to store the data.
