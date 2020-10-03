@@ -39,7 +39,7 @@ export default function ResultItem(props) {
                     </Col>
                     : <Col l={1}></Col>
                 }
-                <Col l={1}><a href={props.link} className="btn-small z-depth-2 amber">View</a></Col>
+                <Col l={1}><a href={props.link} className="btn-small z-depth-2 amber" target="_blank" rel="noopener noreferrer">View</a></Col>
             </Row>
             <Row>
                 <Col l={2}><img src={props.image}></img></Col>
