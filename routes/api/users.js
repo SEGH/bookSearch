@@ -14,4 +14,7 @@ router.route("/login")
         });
     });
 
+router.route("/logout")
+    .get(usersController.logout);
+
 module.exports = router;
