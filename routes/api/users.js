@@ -2,7 +2,7 @@ const router = require("express").Router();
 const usersController = require("../../controllers/usersControllers");
 const passport = require("../../config/passport");
 
-router.route("/")
+router.route("/register")
     .post(usersController.create);
 
 router.route("/login")
