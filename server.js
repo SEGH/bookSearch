@@ -1,17 +1,25 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 const routes = require("./routes");
-const app = express();
 const passport = require("./config/passport");
+const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const bodyParser = require("body-parser");
 require("dotenv").config();
 const PORT = process.env.PORT || 3001;
 
+const app = express();
+
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cors({
+  origin: "http://localhost:3000",
+  credentials: true
+}));
 app.use(session({ secret: process.env.SESSION_SECRET, resave: false, saveUninitialized: false }));
+app.use(cookieParser(process.env.SESSION_SECRET));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use( (req, res, next) => {
