@@ -2,6 +2,10 @@ const db = require("../models");
 const bcrypt = require("bcrypt");
 
 module.exports = {
+    getUser: function(req, res) {
+        // The req.user stores the user that has been authenticated
+        res.send(req.user);
+    },
     create: function (req, res) {
         const hash = bcrypt.hashSync(req.body.password, 12);
         db.User
