@@ -15,6 +15,9 @@ export default {
     deleteBook: function(id) {
         return axios.delete("/api/books/" + id);
     },
+    getUser: function() {
+        return axios.get("/api/users");
+    },
     createUser: function(userData) {
         console.log(userData);
         return axios.post("/api/users/register", userData);
