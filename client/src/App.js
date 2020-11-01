@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Login from "./pages/Login";
@@ -18,6 +18,26 @@ export default function App() {
         email: "",
         password: ""
     });
+
+    useEffect(() => {
+        checkUser();
+    }, []);
+
+    const checkUser = () => {
+        API.getUser()
+            .then(res => {
+                console.log(res);
+                if (res.data) {
+                    console.log("Logged In");
+                    setLoggedIn(true);
+                    setUser({
+                        email: res.data.email,
+                        id: res.data.id
+                    });
+                }
+            })
+            .catch(err => console.log(err));
+    }
 
     const handleLoginInput = event => {
         const { value } = event.target;
@@ -74,6 +94,7 @@ export default function App() {
     const logoutUser = () => {
         API.logoutUser()
             .then(res => {
+                console.log("Logged Out");
                 setUser({
                     email: "",
                     id: ""
