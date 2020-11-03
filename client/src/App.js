@@ -32,7 +32,7 @@ export default function App() {
                     setLoggedIn(true);
                     setUser({
                         email: res.data.email,
-                        id: res.data.id
+                        id: res.data._id
                     });
                 }
             })
