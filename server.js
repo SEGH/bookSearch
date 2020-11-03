@@ -20,10 +20,7 @@ if (process.env.NODE_ENV === "production") {
 app.use(cookieParser(process.env.SESSION_SECRET));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(cors({
-  origin: "http://localhost:3001",
-  credentials: true
-}));
+app.use(cors());
 app.use(session({ secret: process.env.SESSION_SECRET, resave: false, saveUninitialized: false }));
 app.use(express.urlencoded({ extended: true }));
 app.use(passport.initialize());
