@@ -23,7 +23,7 @@ export default function ResultItem(props) {
         API.deleteBook(id)
             .then(res => {
                 console.log(`${id} deleted!`);
-                // props.loadBooks();
+                props.setBooksLength(props.booksLength - 1);
             })
             .catch(err => console.log(err));
     };
