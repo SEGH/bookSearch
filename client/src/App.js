@@ -52,18 +52,19 @@ export default function App() {
     const handleLoginSubmit = event => {
         event.preventDefault();
 
-        API.loginUser(loginForm)
-            .then(res => {
-                console.log("Logging in...")
-                // console.log(res);
-                setUser({
-                    email: res.data.email,
-                    id: res.data.id
-                });
-                setLoggedIn(true);
-                // window.location.href = "./";
-            })
-            .catch(err => console.log(err));
+        if (loginForm.email !== "" && loginForm.password !== "" && loginForm.email.length < 100 && loginForm.password.length <= 20) {
+            API.loginUser(loginForm)
+                .then(res => {
+                    console.log("Logging in...")
+                    // console.log(res);
+                    setUser({
+                        email: res.data.email,
+                        id: res.data.id
+                    });
+                    setLoggedIn(true);
+                })
+                .catch(err => console.log(err));
+        }
     }
 
     const [signUpForm, setSignUpForm] = useState({
@@ -84,11 +85,13 @@ export default function App() {
     const handleSignupSubmit = event => {
         event.preventDefault();
 
-        API.createUser(signUpForm)
-            .then(res => {
-                console.log("User created")
-            })
-            .catch(err => console.log(err));
+        if (signUpForm.email !== "" && signUpForm.password !== "" && signUpForm.email.length < 100 && signUpForm.password.length <= 20) {
+            API.createUser(signUpForm)
+                .then(res => {
+                    console.log("User created")
+                })
+                .catch(err => console.log(err));
+        }
     }
 
     const logoutUser = () => {
@@ -106,9 +109,9 @@ export default function App() {
     return (
         <Router>
             <Header loggedIn={loggedIn} logoutUser={logoutUser} />
-            <Route exact path="/login" render={(props) => ( <Login {...props} handleLoginSubmit={handleLoginSubmit} handleLoginInput={handleLoginInput} handleSignupInput={handleSignupInput} handleSignupSubmit={handleSignupSubmit} loggedIn={loggedIn} user={user} />)} />
-            <Route exact path="/" render={(props) => ( <Search {...props} userId={user.id} loggedIn={loggedIn} />)} />
-            <Route exact path="/saved" render={(props) => ( <Saved {...props} user={user} loggedIn={loggedIn} />)} />
+            <Route exact path="/login" render={(props) => (<Login {...props} handleLoginSubmit={handleLoginSubmit} handleLoginInput={handleLoginInput} handleSignupInput={handleSignupInput} handleSignupSubmit={handleSignupSubmit} loggedIn={loggedIn} user={user} />)} />
+            <Route exact path="/" render={(props) => (<Search {...props} userId={user.id} loggedIn={loggedIn} />)} />
+            <Route exact path="/saved" render={(props) => (<Saved {...props} user={user} loggedIn={loggedIn} />)} />
         </Router>
     );
 }
