@@ -19,13 +19,15 @@ export default function Search(props) {
 
     const handleSearch = event => {
         event.preventDefault();
-        console.log(bookSearch);
-        API.getBooks(bookSearch)
+        console.log(`Search Input: ${bookSearch}`);
+        if (bookSearch) {
+            API.getBooks(bookSearch)
             .then(res => {
                 // console.log(res.data.items);
                 setBooks(res.data.items);
                 setBookSearch(" ");
             });
+        }
     }
 
     return (
