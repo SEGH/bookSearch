@@ -26,7 +26,7 @@ export default function App() {
     const checkUser = () => {
         API.getUser()
             .then(res => {
-                console.log(res);
+                // console.log(res);
                 if (res.data) {
                     console.log("Logged In");
                     setLoggedIn(true);
@@ -55,7 +55,7 @@ export default function App() {
         API.loginUser(loginForm)
             .then(res => {
                 console.log("Logging in...")
-                console.log(res);
+                // console.log(res);
                 setUser({
                     email: res.data.email,
                     id: res.data.id

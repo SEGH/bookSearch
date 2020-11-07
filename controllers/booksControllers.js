@@ -14,7 +14,7 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     create: function (req, res) {
-        console.log(req.body);
+        // console.log(req.body);
         db.Book
             .create({
                 title: req.body.title,
@@ -24,10 +24,10 @@ module.exports = {
                 link: req.body.link
             })
             .then(book => {
-                console.log(book);
+                // console.log(book);
                 db.User.findOneAndUpdate({ _id: mongoose.Types.ObjectId(req.params.userId) }, { $push: { books: book } })
                     .then(user => {
-                        console.log(user);
+                        // console.log(user);
                         res.json(user);
                     })
                     .catch(err => {

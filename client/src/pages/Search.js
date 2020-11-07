@@ -22,7 +22,7 @@ export default function Search(props) {
         console.log(bookSearch);
         API.getBooks(bookSearch)
             .then(res => {
-                console.log(res.data.items);
+                // console.log(res.data.items);
                 setBooks(res.data.items);
                 setBookSearch(" ");
             });

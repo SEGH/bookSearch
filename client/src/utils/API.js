@@ -19,11 +19,11 @@ export default {
         return axios.get("/api/users");
     },
     createUser: function(userData) {
-        console.log(userData);
+        // console.log(userData);
         return axios.post("/api/users/register", userData);
     },
     loginUser: function(userData) {
-        console.log(userData);
+        // console.log(userData);
         return axios.post("/api/users/login", userData);
     },
     logoutUser: function() {
