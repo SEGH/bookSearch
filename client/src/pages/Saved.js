@@ -14,12 +14,12 @@ export default function Saved(props) {
             // console.log(props.user);
             if (props.user.id) {
                 API.getSavedBooks(props.user.id)
-                .then(res => {
-                    // console.log(res.data.books);
-                    setBooks(res.data.books);
-    
-                })
-                .catch(err => console.log(err));
+                    .then(res => {
+                        // console.log(res.data.books);
+                        setBooks(res.data.books);
+
+                    })
+                    .catch(err => console.log(err));
             }
         };
 
