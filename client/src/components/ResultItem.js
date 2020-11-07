@@ -8,8 +8,8 @@ export default function ResultItem(props) {
     const location = useLocation();
 
     function saveBook(userId, book) {
-        console.log(book);
-        console.log(userId);
+        // console.log(book);
+        // console.log(userId);
 
         API.saveBook(userId, book)
             .then(res => {
@@ -19,7 +19,7 @@ export default function ResultItem(props) {
     };
 
     function deleteBook(id) {
-        console.log(id);
+        // console.log(id);
         API.deleteBook(id)
             .then(res => {
                 console.log(`${id} deleted!`);
@@ -42,7 +42,7 @@ export default function ResultItem(props) {
                 <Col l={1}><a href={props.link} className="btn-small z-depth-2 amber" target="_blank" rel="noopener noreferrer">View</a></Col>
             </Row>
             <Row>
-                <Col l={2}><img src={props.image}></img></Col>
+                <Col l={2}><img src={props.image} alt={`${props.title} book cover`}></img></Col>
                 <Col l={10}><p>{props.description}</p></Col>
             </Row>
 
